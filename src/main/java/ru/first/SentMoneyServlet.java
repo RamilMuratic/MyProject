@@ -1,5 +1,6 @@
 package ru.first;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -7,10 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet(urlPatterns = "/servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/money")
+public class SentMoneyServlet extends HttpServlet {
 
-    public HelloServlet() {
+
+    @Override
+    public void init() throws ServletException  {
+
+
+        System.out.println(">>>>>>Starting SentMoneyServlet");
+    }
+
+    public SentMoneyServlet() {
         System.out.println("Running");
     }
 
