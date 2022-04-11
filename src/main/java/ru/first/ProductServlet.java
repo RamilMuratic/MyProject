@@ -32,22 +32,22 @@ public class ProductServlet extends HttpServlet {
 
         String productName = request.getParameter("name");
 
-        response.setContentType("text/html;charset=windows-1251");
-
+        response.setContentType("text/html");
+        response.setCharacterEncoding("Cp1251");
 
         if ("kefir".equals(productName)) {
             response.getWriter().append("<html><head>\n" +
 
                     "    <meta charset=\"UTF-8\">\n" +
-                    "</head><body>Kefir price 100р</body></html>");
+                    "</head><body><p>Kefir price 100р</p><p><a href=\"./\">Return back</a></p></body></html>");
         } else if ("milk".equals(productName)) {
             response.getWriter().append("<html><head>\n" +
                     "    <meta charset=\"UTF-8\">\n" +
-                    "</head><body>Milk price 90р</body></html>");
+                    "</head><body>Milk price 90р<p><a href=\"./\">Return back</a></p></body></html>");
         } else {
             response.getWriter().append("<html><head>\n" +
                     "    <meta charset=\"UTF-8\">\n" +
-                    "</head><body>Unknown product</body></html>");
+                    "</head><body>Unknown product<p><a href=\"./\">Return back</a></p></body></html>");
         }
 
     }
