@@ -1,52 +1,57 @@
 package ru.first;
 
+import ru.first.product.Product;
+import ru.first.product.ProductService;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.util.Random;
+import java.util.Collections;
+import java.util.Map;
+
 
 @WebServlet(urlPatterns = "/product")
 public class ProductServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+    public static final String NAME = "name";
+    public static final String CONTENT_TYPE = "text/html;charset=UTF-8";
+    public static final String UTF_8 = "UTF-8";
+
+
+    private Map<String, Product> products = null;
 
     @Override
-    public void init() throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
 
-        System.out.println(">>>>>>Starting HelloServlet");
+        products = ProductService.getAll();
+
     }
-
-    public ProductServlet() {
-        System.out.println("Running");
-    }
-
-    private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        String productName = request.getParameter("name");
+        request.setCharacterEncoding(UTF_8);
+        response.setContentType(CONTENT_TYPE);
 
-        response.setContentType("text/html");
-        response.setCharacterEncoding("Cp1251");
+        String productName = request.getParameter(NAME);
 
-        if ("kefir".equals(productName)) {
+        Product foundProduct = products.get(productName);
+        response.setHeader("Page-Name", "product info page");
+
+        if (foundProduct != null) {
             response.getWriter().append("<html><head>\n" +
-
-                    "    <meta charset=\"UTF-8\">\n" +
-                    "</head><body><p>Kefir price 100р</p><p><a href=\"./\">Return back</a></p></body></html>");
-        } else if ("milk".equals(productName)) {
-            response.getWriter().append("<html><head>\n" +
-                    "    <meta charset=\"UTF-8\">\n" +
-                    "</head><body>Milk price 90р<p><a href=\"./\">Return back</a></p></body></html>");
+                    "</head><body><p> Name: " + foundProduct.getName() + " Category " +
+                    foundProduct.getCategory() + " Price: " + foundProduct.getPrice() + "</p><p><a href=\"./\">Return back</a></p></body></html>");
         } else {
             response.getWriter().append("<html><head>\n" +
-                    "    <meta charset=\"UTF-8\">\n" +
                     "</head><body>Unknown product<p><a href=\"./\">Return back</a></p></body></html>");
         }
 
@@ -55,9 +60,14 @@ public class ProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        Random r = new Random();
+        String pName = request.getParameter("name");
+        String pCategory = request.getParameter("category");
+        String pPrice = request.getParameter("price");
 
-        System.out.println("HelloServlet is invoking");
-        response.getWriter().append("Hello! This random number: " + r.nextInt());
+        Product product = new Product(pName, Double.valueOf(pPrice), pCategory);
+        ProductService.add(product);
+
+        response.getWriter().append("<html><head>\n" +
+                "</head><body>New product added!<p><a href=\"./\">Return back</a></p></body></html>");
     }
 }
