@@ -17,14 +17,10 @@ public class ProductService {
 
 
     public static synchronized Map<String, Product> getAll() {
-
         return products;
-
     }
 
-
     public static Product get(String name) {
-
         return null;
     }
 
@@ -40,9 +36,7 @@ public class ProductService {
 
 
     public static synchronized void add(Product product) {
-
         products.put(product.getName(), product);
-
     }
 
 }
