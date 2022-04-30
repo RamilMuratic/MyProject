@@ -31,7 +31,7 @@ public class ViewBasketProductServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        List<Product> myBasket = (List<Product>)httpSession.getAttribute("myBasket");
+        List<Product> myBasket = (List<Product>)httpSession.getAttribute(ServletHelper.SESSION_ATTRIBUTE_PRODUCT_SERVICE);
 
         if (myBasket!=null && myBasket.size() != 0) {
             response.getWriter().append("<p>View basket:</p>");
@@ -40,12 +40,14 @@ public class ViewBasketProductServlet extends HttpServlet {
 
             for (int i=0; i < myBasket.size(); i++) {
                 Product p = myBasket.get(i);
-                response.getWriter().append("<tr>\n" +
-                        "    <td>" + p.getName() + "</td>\n" +
-                        "    <td>" + p.getCategory() + "</td> \n" +
-                        "    <td>" +p.getPrice()  + "</td>\n" +
-                        "    <td><a href= \"./remove?id=" + i + "\">Remove</a></td>\n" +
-                        "  </tr>");
+
+                    response.getWriter().append("<tr>\n" +
+                            "    <td>" + p.getName() + "</td>\n" +
+                            "    <td>" + p.getCategory() + "</td> \n" +
+                            "    <td>" + p.getPrice() + "</td>\n" +
+                            "    <td><a href= \"./remove?id=" + i + "\">Remove</a></td>\n" +
+                            "  </tr>");
+
             }
 
             response.getWriter().append(TABLE_END);

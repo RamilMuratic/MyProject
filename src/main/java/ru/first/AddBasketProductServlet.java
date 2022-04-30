@@ -21,12 +21,14 @@ public class AddBasketProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public static final String NAME = "name";
 
-    private Map<String, Product> products = null;
+    private ProductService ps = null;
+
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        products = ProductService.getAll();
+
+        ps  = (ProductService)getServletContext().getAttribute(ServletHelper.SC_ATTRIBUTE_PRODUCT_SERVICE);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,16 +36,16 @@ public class AddBasketProductServlet extends HttpServlet {
 
         String pName = request.getParameter(NAME);
 
-        Product selectProduct = products.get(pName);
+        Product selectProduct = ps.get(pName);
 
-        Object myBasket = request.getSession().getAttribute("myBasket");
+        Object myBasket = request.getSession().getAttribute(ServletHelper.SESSION_ATTRIBUTE_PRODUCT_SERVICE);
         if (myBasket !=null) {
             List<Product> list = (List<Product>)myBasket;
             list.add(selectProduct);
         } else {
             List<Product> list = new ArrayList();
             list.add(selectProduct);
-            request.getSession().setAttribute("myBasket", list);
+            request.getSession().setAttribute(ServletHelper.SESSION_ATTRIBUTE_PRODUCT_SERVICE, list);
         }
 
         ServletHelper.populateHtmlBegin(response);

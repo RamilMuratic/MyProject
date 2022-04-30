@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class ProductService {
 
-    private static Map<String, Product> products = new HashMap<>();
+    private  Map<String, Product> products = new HashMap<>();
 
-   static  {
+    public ProductService() {
         products.put("Kefir", new Product("Kefir", 100, "DiaryProduct"));
         products.put("Milk", new Product("Milk", 200, "DiaryProduct"));
         products.put("Yougrt", new Product("Yougrt", 30, "DiaryProduct"));
@@ -16,26 +16,26 @@ public class ProductService {
     }
 
 
-    public static synchronized Map<String, Product> getAll() {
+    public  synchronized Map<String, Product> getAll() {
         return products;
     }
 
-    public static Product get(String name) {
+    public synchronized  Product get(String name) {
         return null;
     }
 
 
-    public static Map<String, Product> getByNameAndCategory(String name, String category) {
+    public synchronized Map<String, Product> getByNameAndCategory(String name, String category) {
         return null;
     }
 
 
-    public static boolean delete(String name) {
+    public synchronized boolean delete(String name) {
         return false;
     }
 
 
-    public static synchronized void add(Product product) {
+    public  synchronized void add(Product product) {
         products.put(product.getName(), product);
     }
 

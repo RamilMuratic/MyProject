@@ -5,14 +5,14 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <servlet>
-        <servlet-name>ProductServlet</servlet-name>
-        <servlet-class>ru.first.ProductServlet</servlet-class>
-    </servlet>
+   <error-page>
+       <error-code>500</error-code>
+       <location>/error.html</location>
+   </error-page>
 
-    <servlet-mapping>
-        <servlet-name>ProductServlet</servlet-name>
-        <url-pattern>/product</url-pattern>
-    </servlet-mapping>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error3.html</location>
+    </error-page>
 
 </web-app>

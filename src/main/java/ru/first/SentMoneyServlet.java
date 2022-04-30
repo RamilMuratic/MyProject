@@ -14,8 +14,6 @@ public class SentMoneyServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException  {
-
-
         System.out.println(">>>>>>Starting SentMoneyServlet");
     }
 
