@@ -16,12 +16,12 @@ public class ProductService {
     }
 
 
-    public  synchronized Map<String, Product> getAll() {
+    public synchronized Map<String, Product> getAll() {
         return products;
     }
 
     public synchronized  Product get(String name) {
-        return null;
+        return products.get(name);
     }
 
 

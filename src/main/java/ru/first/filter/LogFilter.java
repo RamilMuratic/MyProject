@@ -23,6 +23,8 @@ public class LogFilter implements Filter {
             System.out.println("Requested: " + url + " queryString: "  + queryString);
         }
 
+
+
         chain.doFilter(request, response);
 
         System.out.println("LogFilter word finished!");

@@ -47,7 +47,6 @@ public class ViewBasketProductServlet extends HttpServlet {
                             "    <td>" + p.getPrice() + "</td>\n" +
                             "    <td><a href= \"./remove?id=" + i + "\">Remove</a></td>\n" +
                             "  </tr>");
-
             }
 
             response.getWriter().append(TABLE_END);
