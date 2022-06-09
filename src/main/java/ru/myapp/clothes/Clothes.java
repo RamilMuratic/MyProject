@@ -9,7 +9,9 @@ public class Clothes {
     private String color;
     private String producingCountry;
 
+    public Clothes() {
 
+    }
     public Clothes(String name, double price, String category, String size, String color, String producingCountry) {
         this.name = name;
         this.price = price;

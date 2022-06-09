@@ -15,12 +15,15 @@ import java.util.List;
 @WebServlet(urlPatterns = "/viewBasket")
 public class ViewBasketProductServlet extends HttpServlet {
 
-    public static final String TABLE_BEGIN = "<table style=\" border: 1px solid white;   border-collapse: collapse;\">\n" +
+    public static final String TABLE_BEGIN = "<table style=\" border: 5px solid green;   border-collapse: collapse;\">\n" +
             "  <tr>\n" +
-            "    <th>Product name</th>\n" +
-            "    <th>Product category</th> \n" +
+            "    <th>Name</th>\n" +
+            "    <th>Category</th> \n" +
             "    <th>Price</th>\n" +
-            "    <th>Remove</th>\n" +
+            "    <th>Size</th>\n" +
+            "    <th>Color</th>\n" +
+            "    <th>Country</th>\n" +
+            "    <th>         </th>\n" +
             "  </tr>";
 
     public static final String TABLE_END = "</table>";
@@ -41,14 +44,16 @@ public class ViewBasketProductServlet extends HttpServlet {
             for (int i=0; i < myBasket.size(); i++) {
                 Clothes p = myBasket.get(i);
 
-                    response.getWriter().append("<tr>\n" +
-                            "    <td>" + p.getName() + "</td>\n" +
-                            "    <td>" + p.getCategory() + "</td> \n" +
-                            "    <td>" + p.getPrice() + "</td>\n" +
-                            "    <td><a href= \"./remove?id=" + i + "\">Remove</a></td>\n" +
-                            "  </tr>");
+                response.getWriter().append("<tr>\n" +
+                        "    <td>  " + p.getName() + "       </td>\n" +
+                        "    <td>  " + p.getCategory() + "  </td> \n" +
+                        "    <td>  " + p.getPrice() + "     </td>\n" +
+                        "    <td>  " + p.getSize() + "      </td>\n" +
+                        "    <td>  " + p.getColor() + "     </td>\n" +
+                        "    <td>  " + p.getProducingCountry() + "      </td>\n" +
+                        "    <td><a href= \"./remove?id=" + i + "\">Remove</a></td>\n" +
+                        "  </tr>");
             }
-
             response.getWriter().append(TABLE_END);
 
         } else {

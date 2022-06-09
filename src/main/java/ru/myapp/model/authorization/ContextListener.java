@@ -21,11 +21,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class ContextListener implements ServletContextListener {
 
-    /*
-     * Fake database connector.
-     */
 
-   /* private AtomicReference<UserDAO> dao;*/
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
@@ -33,10 +29,6 @@ public class ContextListener implements ServletContextListener {
         logPass.put("admin", new User("admin", "123"));
 
 
-      /*  dao = new AtomicReference<>(new UserDAO());
-
-        dao.get().add(new User(1, "Pavel", "1", ADMIN));
-        dao.get().add(new User(2, "Egor", "1", USER));*/
 
         final ServletContext servletContext =
                 servletContextEvent.getServletContext();
