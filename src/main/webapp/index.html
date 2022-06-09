@@ -2,31 +2,25 @@
 <html>
 <head>
     <meta charset="UTF-8">
+
 </head>
-<body>
+<body style="background-color:#FFF8DC;">
 
-<h1>Поиска продуктов</h1>
-<p>Страница предоставления информации о продуктах на складе</p>
+<h1 style="text-align:center;">Магазин одежды</h1>
+<p>
+<button onclick="/viewBasket">Каталог</button>
+</p>
+<p>
+<button onclick="window.location.href ='/searchClothes.html';">Поиск товаров</button>
 
+</p>
+<p>
+    <button onclick="window.location.href ='/basket.html';">Корзина</button>
+</p>
+<p>
 
-<div>
-    <form action="/product" method="get">
-        <label for="name">Введите название продукта для поиска:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="category">Выбор категории продукта:</label><br>
-        <input type="text" id="category" name="category">
+    <button onclick="window.location. href='authForm.html';">Войти от имени Администратора</button>
 
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-</div>
-
-<div>
-    <p><a href="./productAdd.html">Форма добавления продукта</a>  </p>
-</div>
-
-<div>
-    <p><a href="./viewBasket">Просмотр корзины</a>  </p>
-</div>
+</p>
 </body>
 </html>

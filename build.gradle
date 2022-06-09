@@ -23,7 +23,7 @@ dependencies {
 
 
 gretty {
-    httpPort = 8082
+    httpPort = 8081
     contextPath = '/'
 }
 

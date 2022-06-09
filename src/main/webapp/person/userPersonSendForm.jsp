@@ -5,12 +5,12 @@
 <title>User Form</title>
 </head>
 <body>
-<form action="userPersonForm.jsp">
-Name: <input name="name" />
+<form action="/authorization">
+Log In: <input login="login12312312312" />
 <br><br>
-Age: <input name="age" type="number" min=1 />
+Password: <input password="password" />
 <br></br>
-<input type="submit" value="Submit" />
+<input type="submit" value="/authorization" />
 </form>
 </body>
 </html>
