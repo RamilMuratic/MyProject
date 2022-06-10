@@ -1,9 +1,6 @@
 package ru.myapp;
 
-
-
 import ru.myapp.clothes.Clothes;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -57,9 +54,9 @@ public class ViewBasketProductServlet extends HttpServlet {
             response.getWriter().append(TABLE_END);
 
         } else {
-            response.getWriter().append("<p>Our basket is Empty!</p>");
+            response.getWriter().append("<p> The shopping cart is empty, add products </p>");
+            response.getWriter().append("<p><a href=\"./catalog\">HA3AD</a></p>");
         }
-
         ServletHelper.populateHtmlEnd(response);
     }
 }

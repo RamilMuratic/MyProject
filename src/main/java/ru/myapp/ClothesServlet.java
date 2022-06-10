@@ -37,11 +37,6 @@ public class ClothesServlet extends HttpServlet {
 
         String clothesName = request.getParameter(NAME);
 
-            String category = request.getParameter(CATEGORY);
-            String price = request.getParameter(PRICE);
-            String size = request.getParameter(COLOR);
-
-
             Clothes foundClothes = clothesInit.getAll().get(clothesName);
 
             ServletHelper.populateHtmlBegin(response);
@@ -74,6 +69,7 @@ public class ClothesServlet extends HttpServlet {
         ServletHelper.populateHtmlBegin(response);
         response.getWriter().append("<p>New product added!</p>");
         response.getWriter().append("<p><a href=\"./clothesAdd.html\">HA3AD</a></p>");
+
         ServletHelper.populateHtmlEnd(response);
     }
 
