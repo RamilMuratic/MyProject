@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/viewBasket")
-public class ViewBasketProductServlet extends HttpServlet {
+public class ViewBasketServlet extends HttpServlet {
 
     public static final String TABLE_BEGIN = "<table style=\" border: 5px solid green;   border-collapse: collapse;\">\n" +
             "  <tr>\n" +
@@ -28,14 +28,11 @@ public class ViewBasketProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         ServletHelper.populateHtmlBegin(response);
-
         HttpSession httpSession = request.getSession();
-
         List<Clothes> myBasket = (List<Clothes>)httpSession.getAttribute(ServletHelper.SESSION_ATTRIBUTE_CLOTHES_SERVICE);
 
         if (myBasket!=null && myBasket.size() != 0) {
             response.getWriter().append("<p>View basket:</p>");
-
             response.getWriter().append(TABLE_BEGIN);
 
             for (int i=0; i < myBasket.size(); i++) {
@@ -52,6 +49,7 @@ public class ViewBasketProductServlet extends HttpServlet {
                         "  </tr>");
             }
             response.getWriter().append(TABLE_END);
+
 
         } else {
             response.getWriter().append("<p> The shopping cart is empty, add products </p>");

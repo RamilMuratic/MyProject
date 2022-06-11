@@ -18,6 +18,7 @@ public class Clothes {
         this.producingCountry = producingCountry;
     }
 
+
     public String getName() {
         return name;
     }
@@ -46,25 +47,14 @@ public class Clothes {
         return size;
     }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
-
     public String getColor() {
         return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public String getProducingCountry() {
         return producingCountry;
     }
 
-    public void setProducingCountry(String producingCountry) {
-        this.producingCountry = producingCountry;
-    }
 
     @Override
     public String toString() {

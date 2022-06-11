@@ -25,7 +25,6 @@ public class AddBasketClothesServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-
         clothes = ClothesService.getAll();
     }
 
@@ -33,6 +32,7 @@ public class AddBasketClothesServlet extends HttpServlet {
             throws IOException {
 
         String pName = request.getParameter(NAME);
+
 
         Clothes selectClothes = clothes.get(pName);
 

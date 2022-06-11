@@ -1,8 +1,7 @@
-package ru.myapp;
+package ru.myapp.shopcart;
 
-import ru.myapp.shopcart.BasketService;
+import ru.myapp.ServletHelper;
 import ru.myapp.clothes.Clothes;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +13,7 @@ import java.util.List;
 
 
 @WebServlet(urlPatterns = "/remove")
-public class RemoveProductFromBasketServlet extends HttpServlet {
+public class RemoveFromBasketServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
@@ -25,8 +24,8 @@ public class RemoveProductFromBasketServlet extends HttpServlet {
         BasketService.removeFromBasket((int) id, (List<Clothes>) myBasket);
 
         RequestDispatcher rd = request.getRequestDispatcher("/viewBasket");
-        rd.include(request, response);
 
+        rd.include(request, response);
     }
 
 }

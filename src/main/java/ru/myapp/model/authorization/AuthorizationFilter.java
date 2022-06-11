@@ -14,6 +14,7 @@ import java.util.Map;
 @WebServlet("/authorization")
 public class AuthorizationFilter extends HttpServlet {
 
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -22,8 +23,6 @@ public class AuthorizationFilter extends HttpServlet {
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-
-        //Логирование
 
         if (logPass.get("admin").getLogin().equals(login) && logPass.get("admin").getPassword().equals(password)) {
                 //переход в меню администратора

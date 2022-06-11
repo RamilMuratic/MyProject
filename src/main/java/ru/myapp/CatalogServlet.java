@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
-
-import static ru.myapp.ViewBasketProductServlet.TABLE_BEGIN;
-import static ru.myapp.ViewBasketProductServlet.TABLE_END;
+import static ru.myapp.ViewBasketServlet.TABLE_BEGIN;
+import static ru.myapp.ViewBasketServlet.TABLE_END;
 
 @WebServlet(urlPatterns = "/catalog")
 public class CatalogServlet extends HttpServlet {
@@ -51,7 +50,6 @@ public class CatalogServlet extends HttpServlet {
 
         ServletHelper.populateHtmlEnd(response);
     }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
@@ -67,6 +65,7 @@ public class CatalogServlet extends HttpServlet {
         cl.add(clothes);
 
         ServletHelper.populateHtmlBegin(response);
+
         response.getWriter().append("<p>New product added!</p>");
         response.getWriter().append("<p><a href=\"./clothesAdd.html\">HA3AD</a></p>");
 

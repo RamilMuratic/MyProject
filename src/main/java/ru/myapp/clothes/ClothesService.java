@@ -11,6 +11,7 @@ public class ClothesService {
         clothes.put("cap", new Clothes("cap", 100.0, "headdress", "M", "Black", "China"));
         clothes.put("polo", new Clothes("polo", 100.0, "headdress", "XL", "Black", "China"));
         clothes.put("t-shirt", new Clothes("t-shirt", 255.1, "t-shirt", "L", "Black", "China"));
+        clothes.put("hat", new Clothes("hat", 255.1, "t-shirt", "L", "Black", "China"));
 
     }
 
@@ -21,5 +22,4 @@ public class ClothesService {
     public  synchronized void add(Clothes clothes) {
         this.clothes.put(clothes.getName(), clothes);
     }
-
 }

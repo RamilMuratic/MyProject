@@ -2,7 +2,6 @@ package ru.myapp;
 
 import ru.myapp.clothes.Clothes;
 import ru.myapp.clothes.ClothesService;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
-
 
 @WebServlet(urlPatterns = {"/clothes"})
 public class ClothesServlet extends HttpServlet {
@@ -48,9 +45,7 @@ public class ClothesServlet extends HttpServlet {
             } else {
                 response.getWriter().append("<p>Unknown product<p>");
             }
-
             ServletHelper.populateHtmlEnd(response);
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -67,6 +62,7 @@ public class ClothesServlet extends HttpServlet {
         clothesInit.add(clothes);
 
         ServletHelper.populateHtmlBegin(response);
+
         response.getWriter().append("<p>New product added!</p>");
         response.getWriter().append("<p><a href=\"./clothesAdd.html\">HA3AD</a></p>");
 
